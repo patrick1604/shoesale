@@ -207,6 +207,9 @@ function showShoes() {
 
             row.appendChild(count);
 
+
+            //TODO: add Anzahl to buyshoes function for verifying if no more shoes left (c<0)
+
             row.appendChild(makeEntry(a, 'price'));
             var button = document.createElement('button');
             button.setAttribute('class', 'buy');
@@ -261,7 +264,7 @@ function buyShoes(id) {
 
     xmlhttp.onreadystatechange = function() {
         if(xmlhttp.readyState == 4) {
-            alert('response: ' + xmlhttp.responseText);
+          //  alert('response: ' + xmlhttp.responseText);
         }
     };
     xmlhttp.send(post_string);

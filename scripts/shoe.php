@@ -22,6 +22,9 @@ if (isset($_POST['type']))
 
   if ($_POST['type'] == 'update')
   {
+
+  //TODO : check if count < 0!
+
     $sql = 'UPDATE shoe SET Anzahl = Anzahl-1 where id='.(int)$_POST['id'];
     $db->query($sql);
     echo 'Dataset changed';
@@ -33,7 +36,7 @@ if (isset($_POST['type']))
 
     $db->query($sql);
 
-    echo 'Film wurde aktualisiert';
+    echo 'Ware wurde gelöscht!';
   }
 }
 

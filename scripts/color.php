@@ -8,20 +8,24 @@ if (isset($_POST['type']))
   if ($_POST['type'] == 'new')
   {
 echo "Hallo";
-    $tbl_data1 = $db->query_get_table('Select name from colors where id='.$db->esc_string((int)$_POST['primary']));
-
-    $tbl_data2 = $db->query_get_table('Select name from colors where id='.$db->esc_string((int)$_POST['secondary']));
-
-    $tbl_data1 = $tbl_data1;
-    $tbl_data2 = $tbl_data2;
-
-    echo $tbl_data1;
-    echo $tbl_data2;
 
 
-    $sql = "INSERT INTO color (name) VALUES(".'$tbl_data1.'", "'.$tbl_data2.'")";
+  //TODO: get both strings and combine them. add to color table
 
-    $db->query($sql);
+  //  $tbl_data1 = $db->query_get_table('Select name from colors where id='.$db->esc_string((int)$_POST['primary']));
+
+ //   $tbl_data2 = $db->query_get_table('Select name from colors where id='.$db->esc_string((int)$_POST['secondary']));
+
+  //  $tbl_data1 = $tbl_data1;
+  //  $tbl_data2 = $tbl_data2;
+
+   // echo $tbl_data1;
+  //  echo $tbl_data2;
+
+
+  //  $sql = "INSERT INTO color (name) VALUES(".'$tbl_data1.'", "'.$tbl_data2.'")";
+
+  //  $db->query($sql);
     echo 'Neue Sprache wurde angelegt';
   }
 }
