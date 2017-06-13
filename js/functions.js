@@ -11,8 +11,6 @@ function homeMenu()
     var h1 = document.createElement('h1');
     h1.innerHTML = "SHOESALE";
     header.appendChild(h1);
-
-
     var container = document.getElementById('container');
     container.innerHTML = '';
 
@@ -282,6 +280,7 @@ function updateCount(id)
     {
         if(id == i)
         {
+            console.log(id + " " +  i);
             rows[i-1].innerHTML -= 1;
         }
 

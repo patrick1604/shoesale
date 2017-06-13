@@ -47,7 +47,6 @@ if (isset($_GET['rec']))
   // get all episodes
   if ($_GET['rec'] == 'all' && $db != null)
   {
-
     $tbl_data = $db->query_get_table('SELECT * FROM shoe');
   }
   // get specific episode
