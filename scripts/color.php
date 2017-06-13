@@ -7,7 +7,18 @@ if (isset($_POST['type']))
   $db = new DataBase();
   if ($_POST['type'] == 'new')
   {
-    $sql = 'INSERT INTO color (name) VALUES ("'.$db->esc_string($_POST['name']).'")';
+echo "Hallo";
+    $tbl_data1 = $db->query_get_table('Select name from colors where id='.(int)$_GET['primary']);
+
+    $tbl_data2 = $db->query_get_table('Select name from colors where id='.(int)$_GET['secondary']);
+
+    $tbl_data1 = mysql_real_escape_string($tbl_data1);
+    $tbl_data2 = mysql_real_escape_string($tbl_data2);
+
+
+  //  $sql = "INSERT INTO color (name) VALUES("'.
+   // $db->esc_string($tbl_data1).'", "'.
+    // $db->esc_string($tbl_data2).'")";
     $db->query($sql);
     echo 'Neue Sprache wurde angelegt';
   }

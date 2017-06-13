@@ -52,7 +52,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `type` WRITE;
 INSERT INTO `type` VALUES (1,'Riemchensandalen'),(2,'Stoeckelschuh'),
-(3,'Laufschuh'), (4,'High Heels'), (5,'Volleyball-Schnürer');
+(3,'Laufschuh'), (4,'High Heels'), (5,'Volleyball-Schnuerer');
 UNLOCK TABLES;
 
 --
@@ -64,9 +64,9 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 CREATE TABLE `color` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `primary_color` varchar(100) CHARACTER SET latin1 NOT NULL,
-  `secundary_color` varchar(100) CHARACTER SET latin1 NOT NULL,
-  PRIMARY KEY (`id`)
+  `name` varchar(100) CHARACTER SET latin1 NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 SET character_set_client = @saved_cs_client;
 
@@ -75,8 +75,8 @@ SET character_set_client = @saved_cs_client;
 --
 
 LOCK TABLES `color` WRITE;
-INSERT INTO `color` VALUES (1,'Blau', 'Beige'),
-(2,'Gruen', 'Hellblau'), (3,'Rot', 'Schwarz'), (4,'Grau', 'Schwarz');
+INSERT INTO `color` VALUES (1,'Blau/Schwarz'),
+(2,'Gruen/Grau'), (3,'Rot/Weiss'), (4,'Grau/Schwarz');
 UNLOCK TABLES;
 
 --
@@ -103,6 +103,31 @@ INSERT INTO `material` VALUES (1,'Leder'),(2,'Polyester'),(3,'Stoff'),
 (4, 'Styropor');
 UNLOCK TABLES;
 
+
+
+
+DROP TABLE IF EXISTS `colors`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `colors` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET latin1 NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `material`
+--
+
+LOCK TABLES `colors` WRITE;
+INSERT INTO `colors` VALUES (1,'Blau'),(2,'Gruen'),(3,'Rot'),
+(4, 'Gelb'), (5,'Silber'),(6,'Grau'),(7,'Beige'),(8,'Lila'),(9,'Ocker'),
+(10,'Tuerkis'),(11,'Schwarz'),(12, 'Weiss');
+UNLOCK TABLES;
+
+
 --
 -- Table structure for table `shoe`
 --
@@ -117,6 +142,7 @@ CREATE TABLE `shoe` (
   `type_id` int(11) NOT NULL,
   `color_id` int(11) NOT NULL,
   `material_id` int(11) NOT NULL,
+  `Anzahl` int(11) NOT NULL,
   `price` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
@@ -133,10 +159,10 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `shoe` WRITE;
 INSERT INTO `shoe` VALUES
-(1, 'Aufreisser', 2, 4, 3, 1, 99),
-(2, 'Frauenversteher', 1, 1, 1, 3, 44),
-(3, 'Allstar', 2, 3, 2, 2, 199),
-(4, 'Sensation', 3, 2, 4, 4, 70);
+(1, 'Aufreisser', 2, 4, 3, 1, 100, 99),
+(2, 'Frauenversteher', 1, 1, 1, 3, 100, 44),
+(3, 'Allstar', 2, 3, 2, 2, 100, 199),
+(4, 'Sensation', 3, 2, 4, 4, 100, 70);
 UNLOCK TABLES;
 
 
