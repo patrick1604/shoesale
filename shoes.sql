@@ -103,7 +103,9 @@ INSERT INTO `material` VALUES (1,'Leder'),(2,'Polyester'),(3,'Stoff'),
 (4, 'Styropor');
 UNLOCK TABLES;
 
-
+--
+-- Table structure for table `colors`
+--
 
 
 DROP TABLE IF EXISTS `colors`;
@@ -118,7 +120,7 @@ CREATE TABLE `colors` (
 SET character_set_client = @saved_cs_client;
 
 --
--- Dumping data for table `material`
+-- Dumping data for table `colors`
 --
 
 LOCK TABLES `colors` WRITE;

@@ -34,8 +34,8 @@ function addColor()
 }
 
 function addColorCombo( form_name, header, fields) {
-    var header = document.createElement('h2');
-    header.innerHTML = header;
+    var h = document.createElement('h2');
+    h.innerHTML = header;
     var form = document.createElement('form');
     form.setAttribute('name', form_name + '_form');
     form.setAttribute('action', ("javascript:send('" + form_name + "','new')"));
@@ -209,6 +209,7 @@ function showShoes() {
 
             row.appendChild(makeEntry(a, 'price'));
             var button = document.createElement('button');
+            button.setAttribute('class', 'buy');
             button.innerHTML = '<a href="javascript:buyShoes(' + a.id + ')">Buy</a>';
             row.appendChild(button);
 
