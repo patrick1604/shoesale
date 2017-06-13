@@ -17,8 +17,8 @@
 #nav li {
   list-style-type:none;
   float:left;
-  margin:0 10px;
-  padding-left: 5%;
+  margin:0 5px;
+  padding-left: 1%;
   height:35px;
   display:inline;
 }
